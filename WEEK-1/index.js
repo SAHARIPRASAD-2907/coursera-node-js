@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 
 app.use('/dishes',dishRouter)
 app.use('/promotions',promoRouter)
-app.use('/leaders',leader)
+app.use('/leaders',leaderRouter)
 app.use(express.static(__dirname+'/public'))
 
 app.use((req,res,next)=>{

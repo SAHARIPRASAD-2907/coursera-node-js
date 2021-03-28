@@ -24,7 +24,6 @@ promoRouter.route('/')
 //ROUTING FOR PROMOTION ID
 promoRouter.route('/:promoId')
 .get((req,res,next)=>{
-    console.log(req.params);
     res.end('Will send details of promotion:'+req.params.promoId +'to you')
 })
 .post((req,res,next)=>{
