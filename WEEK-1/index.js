@@ -4,7 +4,10 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 
-const dishRouter = require('./routs/dishRouter')
+const {dishRouter}= require('./routs/dishRouter')
+const promoRouter = require('./routs/promoRouter')
+const leaderRouter = require('./routs/leaderRouter')
+
 
 const hostname='localhost';
 const port = 3000;
@@ -14,30 +17,9 @@ app.use(morgan('dev'));
 app.use(bodyParser.json())
 
 
-
-
-
-//ROUTING FOR DISH ID
-// app.get('/dishes/:dishId',(req,res,next)=>{
-//     res.end('Will send details of dishes:'+req.params.dishId +'to you')
-// });
-
-// app.post('/dishes/:dishId',(req,res,next)=>{
-//     res.setTimeout=403;
-//     res.end('POST operation not suported on /dishes/'+req.params.dishId);
-// });
-
-// app.put('/dishes/:dishId',(req,res,next)=>{
-    
-//     res.write('Updating the dish'+ req.params.dishId +'\n');
-//     res.end('will update the dish:' + req.body.name + ' with details:' + req.body.description)
-// });
-
-// app.delete('/dishes/:dishId',(req,res,next)=>{
-//     res.end('Deleting dish'+req.params.dishId)
-// });
-
 app.use('/dishes',dishRouter)
+app.use('/promotions',promoRouter)
+app.use('/leaders',leader)
 app.use(express.static(__dirname+'/public'))
 
 app.use((req,res,next)=>{
