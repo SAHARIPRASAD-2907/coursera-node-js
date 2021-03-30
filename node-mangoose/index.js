@@ -15,12 +15,26 @@ connect.then((db)=>{
     }).then((dish)=>{
         console.log(dish);
 
-        return Dishes.findOne({});
+        return Dishes.findByIdAndUpdate(dish._id,{
+            $set:{description:"Updated test"}
+        },{
+            new:true
+        }).exec();
     })
-    .then((dishes)=>{
-        console.log(dishes);
+    .then((dish)=>{
+        console.log(dish);
+        dish.comment.push({
+            ratting:5,
+            comment:"I am getting a sinking feeling",
+            author:"Learnodo di Carpaccio"
+        })
 
-        return Dishes.deleteMany({})
+        return dish.save()
+    })
+    .then((dish)=>{
+        console.log(dish);
+
+        return Dishes.remove({});
     })
     .then(()=>{
         return mongoose.connection.close();
