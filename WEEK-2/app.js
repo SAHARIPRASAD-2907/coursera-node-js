@@ -12,7 +12,7 @@ var promoRouter = require('./routes/promoRouter')
 var leaderRouter = require('./routes/leaderRouter')
 
 const Dishes = require('./model/dishes')
-
+const promotions = require('./model/promotion')
 
 const url = 'mongodb://localhost:27017/test'
 const connect = mongoose.connect(url)
