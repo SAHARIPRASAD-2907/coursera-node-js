@@ -13,6 +13,7 @@ var leaderRouter = require('./routes/leaderRouter')
 
 const Dishes = require('./model/dishes')
 const promotions = require('./model/promotion')
+const leaders = require('./model/leaders')
 
 const url = 'mongodb://localhost:27017/test'
 const connect = mongoose.connect(url)

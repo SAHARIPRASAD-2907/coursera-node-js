@@ -72,13 +72,14 @@ promoRouter.route('/:promoId')
     .catch((err)=>next(err))
 })
 .delete((req,res,next)=>{
-    Promotions.findByIdAndRemove(req.params.dishId)
+    Promotions.findByIdAndRemove(req.params.promoId)
     .then((resp)=>{
         res.statusCode=200;
         res.setHeader('Content-type','application/json')
         res.json(resp)
 
     },(err)=>next(err))
-    .catch((err)=>next(err))});
+    .catch((err)=>next(err))
+});
 
 module.exports=promoRouter
